@@ -23,3 +23,9 @@ You will extract and analyze website traffic and performance data from the Maven
 <summary>
 Click here to see the ERD and snapshot of each table!
 </summary>
+
+<kbd><img src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/erd1.png" alt="Image" width="750" height="480"></kbd>
+
+</details>
+ 
+***
