@@ -32,15 +32,15 @@ Click here to see the ERD and snapshot of each table!
 
 `products` - Records consist of products available with product id, time when the product is created, and product name
 
-<kbd><img width="659" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/products.PNG"></kbd>
+<kbd><img width="330" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/products.PNG"></kbd>
 
 `website_sessions` - Records consist of each website session. This table shows where the traffic is coming from.
 
-<kbd><img width="659" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/website_sessions.PNG"></kbd>
+<kbd><img width="792" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/website_sessions.PNG"></kbd>
 
 `website_pageviews` - The table that shows website pageviews and url of each pageview.
 
-<kbd><img width="659" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/website_pageviews.PNG"></kbd>
+<kbd><img width="427" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/website_pageviews.PNG"></kbd>
 
 </details>
  
