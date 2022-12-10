@@ -42,6 +42,14 @@ Click here to see the ERD and snapshot of each table!
 
 <kbd><img width="427" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/website_pageviews.PNG"></kbd>
 
+`order_items`
+
+<kbd><img width="531" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/order_items.PNG"></kbd>
+
+`order_item_refunds`
+
+<kbd><img width="527" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/order_item_refunds.PNG"></kbd>
+	
 </details>
  
 ***
