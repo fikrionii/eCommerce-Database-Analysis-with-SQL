@@ -52,6 +52,29 @@ Click here to see the ERD and snapshot of each table!
 	
 </details>
  
-***
+## Project Goal 🎯
+
+<details> 
+<summary>
+Project Goal 
+	
+</summary>
+<br>
+
+image
+
+**Objectives**
+
+- Tell the story of the company's growth, using trended performance data
+- Use the database to explain some of the details around the company's growth story
+- Analyze current performance and use the data available to assess upcoming opportunities
+
+**Problem Questions**
+
+1. 
+2. 
+3. 
+
+</details> 
 
 
