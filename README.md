@@ -1,10 +1,10 @@
 # 🗄️ eCommerce Database Analysis with SQL
 
-## Project Background
+## Project Background 📑
 
 <details> 
 <summary>
-Project Background 📑
+Project Background 
 	
 </summary>
 <br>
