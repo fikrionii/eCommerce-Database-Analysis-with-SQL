@@ -93,9 +93,9 @@ Project Goal
 
 </details> 
 
-## Analysis and Insight 📈
+## Insight and Visualization 📈
 
-### ✒ Q1: 1. Gsearch seems to be the biggest driver of our busienss. Could you pull **monthly trends** for **gsearch sessions and orders** so that we can showcase the growth there?
+### ✒ Q1: Gsearch seems to be the biggest driver of our busienss. Could you pull **monthly trends** for **gsearch sessions and orders** so that we can showcase the growth there?
 
 ```sql
 SELECT
@@ -116,7 +116,7 @@ GROUP BY 1;
 
 <kbd><img width="541" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_1_chart.png"></kbd>
 
-yes
+### ✒ Q2: Next, it would be great to see a similar trend for gsearch, but this time **splitting out nonbrand and brand campaigns separately**. I am wondering if brand is picking up at all. If so, this is a good story to tell.
 
 ***
 
