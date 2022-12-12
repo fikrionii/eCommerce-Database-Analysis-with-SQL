@@ -116,6 +116,8 @@ GROUP BY 1;
 
 <kbd><img width="541" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question1_chart.png"></kbd>
 
+yes
+
 ***
 
 
