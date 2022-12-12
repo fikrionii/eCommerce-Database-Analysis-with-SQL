@@ -89,9 +89,9 @@ Project Goal
 
 8. I'd love for you to **quantify the impact of our billing test**, as well. Please analyze the lift generated from the test (Sep 10 - Nov 10), in terms of **revenue per billing page sessions**, and then pull the number of billing page sessions for the past month to understand monthly impact.
 
-***
-
 </details> 
+
+***
 
 ## Insight and Visualization 📈
 
