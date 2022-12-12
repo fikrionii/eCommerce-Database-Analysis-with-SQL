@@ -51,6 +51,8 @@ Click here to see the ERD and snapshot of each table!
 <kbd><img width="527" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/order_item_refunds.PNG"></kbd>
 	
 </details>
+
+***
  
 ## Project Goal 🎯
 
@@ -90,5 +92,25 @@ Project Goal
 ***
 
 </details> 
+
+## Analysis and Insight 📈
+
+### ✒ Q1: 1. Gsearch seems to be the biggest driver of our busienss. Could you pull **monthly trends** for **gsearch sessions and orders** so that we can showcase the growth there?
+
+```sql
+SELECT
+  EXTRACT(YEAR_MONTH FROM website_sessions.created_at) AS yearmonth,
+  COUNT(DISTINCT website_sessions.website_session_id) AS sessions,
+  COUNT(DISTINCT order_id) AS orders,
+  ROUND(COUNT(DISTINCT order_id) / COUNT(DISTINCT website_sessions.website_session_id) * 100.0, 2) AS conversion_rate
+FROM website_sessions
+  LEFT JOIN orders
+  ON website_sessions.website_session_id = orders.website_session_id
+WHERE utm_source = 'gsearch'
+  AND website_sessions.created_at < '2012-11-27'
+GROUP BY 1;
+```
+
+***
 
 
