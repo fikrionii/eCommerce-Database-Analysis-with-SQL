@@ -114,7 +114,7 @@ GROUP BY 1;
 
 <kbd><img width="241" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_1.PNG"></kbd>
 
-<kbd><img width="541" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question1_chart.png"></kbd>
+<kbd><img width="541" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_1_chart.png"></kbd>
 
 yes
 
