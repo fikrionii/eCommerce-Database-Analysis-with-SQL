@@ -63,7 +63,7 @@ Project Goal
 </summary>
 <br>
 
-<img width="294" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/project_questions.PNG">
+<kbd><img width="294" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/project_questions.PNG"></kbd>
 
 **Objectives**
 
@@ -112,7 +112,9 @@ WHERE utm_source = 'gsearch'
 GROUP BY 1;
 ```
 
-<img width="241" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_1.PNG">
+<kbd><img width="241" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_1.PNG"></kbd>
+
+<kbd><img width="541" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question1_chart.png"></kbd>
 
 ***
 
