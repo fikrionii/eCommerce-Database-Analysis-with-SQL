@@ -102,7 +102,8 @@ SELECT
   EXTRACT(YEAR_MONTH FROM website_sessions.created_at) AS yearmonth,
   COUNT(DISTINCT website_sessions.website_session_id) AS sessions,
   COUNT(DISTINCT order_id) AS orders,
-  ROUND(COUNT(DISTINCT order_id) / COUNT(DISTINCT website_sessions.website_session_id) * 100.0, 2) AS conversion_rate
+  ROUND(COUNT(DISTINCT order_id) /
+    COUNT(DISTINCT website_sessions.website_session_id) * 100.0, 2) AS conversion_rate
 FROM website_sessions
   LEFT JOIN orders
   ON website_sessions.website_session_id = orders.website_session_id
