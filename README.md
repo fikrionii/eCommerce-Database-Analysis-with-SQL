@@ -137,6 +137,8 @@ WHERE utm_source = 'gsearch'
 GROUP BY 1;
 ```
 
+<kbd><img width="600" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_2_rev.PNG"></kbd>
+
 ***
 
 
