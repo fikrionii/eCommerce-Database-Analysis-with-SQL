@@ -118,6 +118,21 @@ GROUP BY 1;
 
 ### ✒ Q2: Next, it would be great to see a similar trend for gsearch, but this time **splitting out nonbrand and brand campaigns separately**. I am wondering if brand is picking up at all. If so, this is a good story to tell.
 
+```sql
+SELECT
+  EXTRACT(YEAR_MONTH FROM website_sessions.created_at) AS yearmonth,
+  COUNT(DISTINCT CASE WHEN utm_campaign = 'nonbrand' THEN website_sessions.website_session_id ELSE NULL END) AS nonbrand_sessions,
+  COUNT(DISTINCT CASE WHEN utm_campaign = 'nonbrand' THEN orders.order_id ELSE NULL END) AS nonbrand_orders,
+  COUNT(DISTINCT CASE WHEN utm_campaign = 'brand' THEN website_sessions.website_session_id ELSE NULL END) AS brand_sessions,
+  COUNT(DISTINCT CASE WHEN utm_campaign = 'brand' THEN orders.order_id ELSE NULL END) AS brand_orders
+FROM website_sessions
+  LEFT JOIN orders
+    ON website_sessions.website_session_id = orders.website_session_id
+WHERE utm_source = 'gsearch'
+  AND website_sessions.created_at < '2012-11-27'
+GROUP BY 1;
+```
+
 ***
 
 
