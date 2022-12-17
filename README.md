@@ -163,9 +163,11 @@ WHERE utm_source = 'gsearch'
 GROUP BY 1;
 ```
 
+<kbd><img width="600" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_3.PNG"></kbd>
+
 <kbd><img width="980" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_3_chart.png"></kbd>
 
-
+Majority of sessions and orders are contributed by users on desktop. Both desktop and mobile shows increased conversion rate from March to November 2012. Investigate why there are less session and orders from users who access through mobile, look into the the mobile webpages user interface and experience. 
 
 ***
 
