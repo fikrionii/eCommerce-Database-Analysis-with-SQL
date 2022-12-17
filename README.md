@@ -143,6 +143,30 @@ GROUP BY 1;
 
 ### ✒ Q3: While we're on gsearch, could you dive into nonbrand, and pull **monthly sessions and orders split by device type**? I want to flex our analytical muscles a little and show the board we really know our traffic sources.
 
+```sql
+SELECT
+  EXTRACT(YEAR_MONTH FROM website_sessions.created_at) AS yearmonth,
+  COUNT(DISTINCT CASE WHEN device_type = 'desktop' THEN website_sessions.website_session_id ELSE NULL END) AS desktop_sessions,
+  COUNT(DISTINCT CASE WHEN device_type = 'desktop' THEN orders.order_id ELSE NULL END) AS desktop_orders,
+    ROUND(COUNT(DISTINCT CASE WHEN device_type = 'desktop' THEN orders.order_id ELSE NULL END) / 
+  COUNT(DISTINCT CASE WHEN device_type = 'desktop' THEN website_sessions.website_session_id ELSE NULL END) * 100.0, 2) AS desktop_cvr,
+  COUNT(DISTINCT CASE WHEN device_type = 'mobile' THEN website_sessions.website_session_id ELSE NULL END) AS mobile_sessions,
+  COUNT(DISTINCT CASE WHEN device_type = 'mobile' THEN orders.order_id ELSE NULL END) AS mobile_orders,
+    ROUND(COUNT(DISTINCT CASE WHEN device_type = 'mobile' THEN orders.order_id ELSE NULL END) / 
+  COUNT(DISTINCT CASE WHEN device_type = 'mobile' THEN website_sessions.website_session_id ELSE NULL END) * 100.0, 2) AS mobile_cvr
+FROM website_sessions
+  LEFT JOIN orders
+    ON website_sessions.website_session_id = orders.website_session_id
+WHERE utm_source = 'gsearch'
+  AND utm_campaign = 'nonbrand'
+  AND website_sessions.created_at < '2012-11-27'
+GROUP BY 1;
+```
+
+<kbd><img width="980" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_3_chart.png"></kbd>
+
+
+
 ***
 
 
