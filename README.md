@@ -206,6 +206,11 @@ WHERE website_sessions.created_at < '2012-11-27'
 GROUP BY 1;
 ```
 
+<kbd><img width="600" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_4_part2.PNG"></kbd>
+
+
+https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_4_part2.PNG
+
 ***
 
 
