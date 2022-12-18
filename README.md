@@ -175,6 +175,37 @@ Majority of traffic sources are coming from users on desktop. Both desktop and m
 
 ### ✒ Q4: I'm worried that one of our more pessimistic board members may be concerned about the large % of traffic from gsearch. Can you pull **monthly trends for gsearch, alongside monthly trends for each of our other channels?**
 
+First, find the various utm sources and referers to see the traffic we're getting
+
+```sql
+SELECT DISTINCT
+  utm_source,
+  utm_campaign,
+  http_referer
+FROM website_sessions
+WHERE website_sessions.created_at < '2012-11-27';
+```
+
+<kbd><img width="300" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_4_part1.PNG"></kbd>
+
+- If utm_source and utm_campaign IS NULL and http_referer IS NOT NULL, it means the sessions come from organic search sessions
+- If utm_source and utm_campaign IS NULL and http_referer IS NULL, it means the sessions come directly from the web / users directly type the website link 
+
+```sql
+SELECT
+  EXTRACT(YEAR_MONTH FROM website_sessions.created_at) AS yearmonth,
+  COUNT(website_sessions.website_session_id) AS sessions,
+  COUNT(DISTINCT CASE WHEN utm_source = 'gsearch' AND http_referer IS NOT NULL THEN website_sessions.website_session_id ELSE NULL END) AS gsearch_paid_sessions,
+  COUNT(DISTINCT CASE WHEN utm_source = 'bsearch' AND http_referer IS NOT NULL THEN website_sessions.website_session_id ELSE NULL END) AS bsearch_paid_sessions,
+  COUNT(DISTINCT CASE WHEN utm_source IS NULL AND http_referer IS NOT NULL THEN website_sessions.website_session_id ELSE NULL END) AS organic_search_sessions,
+  COUNT(DISTINCT CASE WHEN utm_source IS NULL AND http_referer IS NULL THEN website_sessions.website_session_id ELSE NULL END) AS direct_type_sessions
+FROM website_sessions
+  LEFT JOIN orders
+    ON website_sessions.website_session_id = orders.website_session_id
+WHERE website_sessions.created_at < '2012-11-27'
+GROUP BY 1;
+```
+
 ***
 
 
