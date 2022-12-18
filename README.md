@@ -114,9 +114,9 @@ GROUP BY 1;
 
 <kbd><img width="241" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_1.PNG"></kbd>
 
-<kbd><img width="550" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_1_chart.png"></kbd>
+<kbd><img width="750" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_1_chart_rev.png"></kbd>
 
-Good steady growth of sessions, orders and conversion rate.
+Gsearch traffic shows steady growth of sessions and orders.
 
 ### ✒ Q2: Next, it would be great to see a similar trend for gsearch, but this time **splitting out nonbrand and brand campaigns separately**. I am wondering if brand is picking up at all. If so, this is a good story to tell.
 
