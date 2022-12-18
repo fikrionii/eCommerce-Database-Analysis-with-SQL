@@ -219,7 +219,7 @@ SELECT
   EXTRACT(YEAR_MONTH FROM website_sessions.created_at) AS yearmonth,
   COUNT(DISTINCT website_sessions.website_session_id) AS sessions,
   COUNT(DISTINCT order_id) AS orders,
-  ROUND(COUNT(DISTINCT order_id) / COUNT(DISTINCT website_sessions.website_session_id)*100.0, 2) AS sessions_to_orders_cvr
+  ROUND(COUNT(DISTINCT order_id) / COUNT(DISTINCT website_sessions.website_session_id)*100.0, 2) AS conversion_rate
 FROM website_sessions
   LEFT JOIN orders
     ON website_sessions.website_session_id = orders.website_session_id
@@ -227,6 +227,11 @@ WHERE website_sessions.created_at < '2012-11-27'
 GROUP BY 1;
 ```
 <kbd><img width="250" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_5.PNG"></kbd>
+
+<kbd><img width="550" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_5_chart.png"></kbd>
+
+
+https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_5_chart.png
 
 ***
 
