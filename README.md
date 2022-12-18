@@ -305,6 +305,10 @@ WHERE
 - 22,973 x 0.88% = estimated at least 202 incremental orders since July 29 using `\lander-1` page for roughly 4 months
 - 202/4 = 50 additional orders per month. Awesome!!
 
+<kbd><img width="980" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_6_chart.png"></kbd>
+
+### ✒ Q7: For the landing page test you analyzed previously, it would be great to shows a **full conversion funnel from each of the two pages to orders**. You can use the same time period you analyzed last time (Jun 19 - Jul 28)
+
 ***
 
 
