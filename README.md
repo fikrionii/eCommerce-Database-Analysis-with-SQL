@@ -297,6 +297,14 @@ WHERE
   AND utm_campaign = 'nonbrand';
 ```
 
+<kbd><img width="120" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_6_part4.PNG"></kbd>
+
+**Calculate Average Revenue:**
+- Conversion rate difference: 0.88%
+- Total of sessions using `/lander-1` = 22,973
+- 22,973 x 0.88% = estimated at least 202 incremental orders since July 29 using `\lander-1` page for roughly 4 months
+- 202/4 = 50 additional orders per month. Awesome!!
+
 ***
 
 
