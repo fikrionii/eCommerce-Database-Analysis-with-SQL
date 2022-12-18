@@ -226,6 +226,7 @@ FROM website_sessions
 WHERE website_sessions.created_at < '2012-11-27'
 GROUP BY 1;
 ```
+<kbd><img width="250" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_5.PNG"></kbd>
 
 ***
 
