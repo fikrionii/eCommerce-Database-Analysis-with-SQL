@@ -214,6 +214,19 @@ Number of sessions keep growing every month. Large portion of sessions come from
 
 ### ✒ Q5: I'd like to tell the story of our website performance improvements over the course of the first 8 months. Could you pull **session to order conversion rates, by month**?
 
+```sql
+SELECT
+  EXTRACT(YEAR_MONTH FROM website_sessions.created_at) AS yearmonth,
+  COUNT(DISTINCT website_sessions.website_session_id) AS sessions,
+  COUNT(DISTINCT order_id) AS orders,
+  ROUND(COUNT(DISTINCT order_id) / COUNT(DISTINCT website_sessions.website_session_id)*100.0, 2) AS sessions_to_orders_cvr
+FROM website_sessions
+  LEFT JOIN orders
+    ON website_sessions.website_session_id = orders.website_session_id
+WHERE website_sessions.created_at < '2012-11-27'
+GROUP BY 1;
+```
+
 ***
 
 
