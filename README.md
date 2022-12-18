@@ -281,9 +281,21 @@ WHERE utm_source = 'gsearch'
   AND website_sessions.created_at < '2012-11-27';
 ```
 
+<kbd><img width="300" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_6_part3.PNG"></kbd>
+
 - Max website_session_id for /home is 17145
 - After this session, there are no more /home landing page, and all landing page has been replaced with /lander-1
 
+```sql
+SELECT
+  COUNT(website_session_id) AS sessions_since_test
+FROM website_sessions
+WHERE
+  created_at < '2012-11-27'
+  AND website_session_id >= 17145 -- last home session
+  AND utm_source = 'gsearch'
+  AND utm_campaign = 'nonbrand';
+```
 
 ***
 
