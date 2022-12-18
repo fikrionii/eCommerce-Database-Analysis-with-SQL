@@ -239,6 +239,29 @@ FROM website_pageviews
 WHERE pageview_url = '/lander-1';
 ```
 
+<kbd><img width="75" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_6_part1.PNG"></kbd>
+
+The first website pageview id for lander test page is 23504
+
+```sql
+SELECT
+  website_pageviews.pageview_url AS landing_page,
+  COUNT(DISTINCT website_sessions.website_session_id) AS sessions,
+  COUNT(DISTINCT orders.order_id) AS orders,
+  ROUND(COUNT(DISTINCT orders.order_id)/
+    COUNT(DISTINCT website_sessions.website_session_id) * 100.0,2) AS conversion_rate
+FROM website_sessions
+INNER JOIN website_pageviews
+  ON website_sessions.website_session_id = website_pageviews.website_session_id
+LEFT JOIN orders
+  ON website_sessions.website_session_id = orders.website_session_id
+WHERE website_pageviews.website_pageview_id >= 23504
+  AND website_sessions.created_at < '2012-07-28'
+  AND website_sessions.utm_source = 'gsearch'
+  AND website_sessions.utm_campaign = 'nonbrand'
+  AND website_pageviews.pageview_url IN ('/home', '/lander-1')
+GROUP BY website_pageviews.pageview_url;
+```
 
 
 ***
