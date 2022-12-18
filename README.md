@@ -230,8 +230,16 @@ GROUP BY 1;
 
 <kbd><img width="550" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_5_chart.png"></kbd>
 
+### ✒ Q6: For the gsearch lander test, please **estimate the revenue that test earned us** (**Hint:** Look at the increase in CVR from the test (JUn 19 - Jul 28), and use nonbrand sessions and revenue since then to calculate incremental value)
 
-https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_5_chart.png
+```sql
+SELECT
+  MIN(website_pageview_id) AS first_test_pv
+FROM website_pageviews
+WHERE pageview_url = '/lander-1';
+```
+
+
 
 ***
 
