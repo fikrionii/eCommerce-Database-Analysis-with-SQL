@@ -468,8 +468,8 @@ GROUP BY 1;
 
 <kbd><img width="280" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_8_part1.PNG"></kbd>
 
-- `/billing` page generates 657 sessions, with USD 22,83 revenue per session
-- `/billing-2` page generates 654 sessions, with USD 31,34 revenue per session
+- `/billing` page generates 657 sessions, with average USD 22,83 revenue per session
+- `/billing-2` page generates 654 sessions, with average USD 31,34 revenue per session
 - **INCREASE: USD 8.51 per session**
 
 ```sql
@@ -480,6 +480,25 @@ WHERE created_at BETWEEN '2012-10-27' AND '2012-11-27'
   AND pageview_url IN ('/billing', '/billing-2');
 ```
 
+<kbd><img width="160" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_8_part2.PNG"></kbd>
+
+- `/billing` page USD 22,83 revenue per session and new `/billing-2` page generates USD 31,34 revenue per session. The lift is **USD 8.51 per session**.
+- Over the past month there has been 1,193 sessions. The new page has has generated USD 10,153 increase in revenue. 
+
 ***
+
+## Conclusion ⏺
+
+<details> 
+<summary>
+Conclusion
+	
+</summary>
+<br>
+1. 
+2. 
+3. 
+
+</details> 
 
 
