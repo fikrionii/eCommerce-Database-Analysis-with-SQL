@@ -433,6 +433,10 @@ FROM
 GROUP BY 1;
 ```
 
+<kbd><img width="600" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_7.PNG"></kbd>
+
+https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_7.PNG
+
 ***
 
 
