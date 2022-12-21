@@ -432,10 +432,39 @@ FROM
   session_level_made_it_flags
 GROUP BY 1;
 ```
+- Output 1: Sessions Funnel
 
-<kbd><img width="600" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_7.PNG"></kbd>
+<kbd><img width="480" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_7_sessions.PNG"></kbd>
 
-https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_7.PNG
+- Output 2: Click Rates Funnel
+
+<kbd><img width="580" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_7.PNG"></kbd>
+
+The custom lander page has better click through rates than the original homepage.
+
+### ✒ Q8: I'd love for you to **quantify the impact of our billing test**, as well. Please analyze the lift generated from the test (Sep 10 - Nov 10), in terms of **revenue per billing page sessions**, and then pull the number of billing page sessions for the past month to understand monthly impact.
+
+```sql
+SELECT
+  billing_version_seen,
+  COUNT(DISTINCT website_session_id) AS sessions,
+  ROUND(SUM(price_usd) / COUNT(DISTINCT website_session_id), 2) AS revenue_per_session
+FROM
+(
+SELECT
+  website_pageviews.website_session_id,
+  website_pageviews.pageview_url AS billing_version_seen,
+  orders.order_id,
+  orders.price_usd
+FROM website_pageviews
+  LEFT JOIN orders
+    ON website_pageviews.website_session_id = orders.website_session_id
+WHERE
+  website_pageviews.created_at BETWEEN '2012-09-10' and '2012-11-10'
+  AND website_pageviews.pageview_url IN ('/billing', '/billing-2')
+) AS billing_pageviews_and_order_data
+GROUP BY 1;
+```
 
 ***
 
