@@ -466,9 +466,19 @@ WHERE
 GROUP BY 1;
 ```
 
+<kbd><img width="280" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_8_part1.PNG"></kbd>
+
 - `/billing` page generates 657 sessions, with USD 22,83 revenue per session
 - `/billing-2` page generates 654 sessions, with USD 31,34 revenue per session
 - **INCREASE: USD 8.51 per session**
+
+```sql
+SELECT
+  COUNT(website_session_id) AS billing_sessions_past_month
+FROM website_pageviews
+WHERE created_at BETWEEN '2012-10-27' AND '2012-11-27'
+  AND pageview_url IN ('/billing', '/billing-2');
+```
 
 ***
 
