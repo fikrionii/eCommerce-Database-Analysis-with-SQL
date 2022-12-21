@@ -27,7 +27,8 @@ You will extract and analyze website traffic and performance data from the Maven
 Click here to see the ERD and snapshot of each table!
 </summary>
 
-<kbd><img src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/erd1.png" alt="Image" width="750" height="480"></kbd>
+<p align="center">
+<kbd><img src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/erd1.png" alt="Image" width="580" height="400"></kbd>
 
 `orders` - Records consist of customers' orders with order id, time when the order is created, website session id, user id, product id of item ordered, number of items purchased, the price of the product (revenue), and cogs (cost of goods sold) in USD
 
@@ -117,6 +118,7 @@ GROUP BY 1;
 
 <kbd><img width="241" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_1.PNG"></kbd>
 
+<p align="center">
 <kbd><img width="750" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_1_chart_rev.png"></kbd>
 
 Gsearch traffic shows steady growth of sessions and orders.
@@ -142,8 +144,9 @@ WHERE utm_source = 'gsearch'
 GROUP BY 1;
 ```
 
-<kbd><img width="600" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_2_rev.PNG"></kbd>
+<kbd><img width="500" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_2_rev.PNG"></kbd>
 
+<p align="center">
 <kbd><img width="550" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_2_chart_rev.png"></kbd>
 
 In the early days of brand campaign, the conversion rate is very high at 9.23%, though the number of sessions and orders are still considered low compared to nonbrand campaign. The brand sessions and orders do increase steadily every month, and while still lower than nonbrand, in November its conversion rate still shows higher number than nonbrand (4.44% vs 4.19% for nonbrand and brand, respectively).
@@ -170,8 +173,9 @@ WHERE utm_source = 'gsearch'
 GROUP BY 1;
 ```
 
-<kbd><img width="600" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_3.PNG"></kbd>
+<kbd><img width="500" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_3.PNG"></kbd>
 
+<p align="center">
 <kbd><img width="980" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_3_chart.png"></kbd>
 
 Majority of traffic sources are coming from users on desktop. Both desktop and mobile shows increased conversion rate from March to November 2012. Investigate why there are less session and orders from users who access through mobile, look into the the mobile webpages user interface and experience. 
@@ -211,6 +215,7 @@ GROUP BY 1;
 
 <kbd><img width="600" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_4_part2.PNG"></kbd>
 
+<p align="center">
 <kbd><img width="600" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_4_chart.png"></kbd>
 
 Number of sessions keep growing every month. Large portion of sessions come from gsearch, starting at 99% at March though it starts to decreased and contribute to 70% of total sessions in November. Bsearch traffic starts to grow in August, contributing to 12% of total and reach its highest in November at 22% of total sessions.
@@ -231,7 +236,8 @@ GROUP BY 1;
 ```
 <kbd><img width="250" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_5.PNG"></kbd>
 
-<kbd><img width="550" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_5_chart.png"></kbd>
+<p align="center">
+<kbd><img width="450" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_5_chart.png"></kbd>
 
 ### ✒ Q6: For the gsearch lander test, please **estimate the revenue that test earned us** (**Hint:** Look at the increase in CVR from the test (JUn 19 - Jul 28), and use nonbrand sessions and revenue since then to calculate incremental value)
 
@@ -308,7 +314,8 @@ WHERE
 - 22,973 x 0.88% = estimated at least 202 incremental orders since July 29 using `\lander-1` page for roughly 4 months
 - 202/4 = 50 additional orders per month. Awesome!!
 
-<kbd><img width="980" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_6_chart.png"></kbd>
+<p align="center">
+<kbd><img width="880" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_6_chart.png"></kbd>
 
 ### ✒ Q7: For the landing page test you analyzed previously, it would be great to shows a **full conversion funnel from each of the two pages to orders**. You can use the same time period you analyzed last time (Jun 19 - Jul 28)
 
@@ -487,8 +494,9 @@ WHERE created_at BETWEEN '2012-10-27' AND '2012-11-27'
 
 - `/billing` page USD 22,83 revenue per session and new `/billing-2` page generates USD 31,34 revenue per session. The lift is **USD 8.51 per session**.
 - Over the past month there has been 1,193 sessions. The new page has has generated **USD 10,153 increase in revenue**. 
-
-<kbd><img width="980" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_8_chart.png"></kbd>
+	
+<p align="center">
+<kbd><img width="880" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_8_chart.png"></kbd>
 
 
 ***
