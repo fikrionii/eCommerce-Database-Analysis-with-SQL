@@ -66,7 +66,10 @@ Project Goal
 	
 </summary>
 <br>
+	
+Cindy Sharp, the Maven Fuzzy Factory CEO just sent you an email. She needs your help to prepare a presentation for the board meeting.
 
+<p align="center">
 <kbd><img width="294" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/images/project_questions.PNG"></kbd>
 
 **Objectives**
