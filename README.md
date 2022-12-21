@@ -1,6 +1,9 @@
-# 🗄️ eCommerce Database Analysis with SQL
+# eCommerce Database Analysis with SQL
 
-## Project Background 📑
+<p align="center">
+  <img src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/ecommerce_cover.jpg" width="400" height="250" />
+
+## Project Background
 
 <details> 
 <summary>
@@ -18,7 +21,7 @@ You will extract and analyze website traffic and performance data from the Maven
 	
 ***
 
-## The Database 🖇️
+## The Database
 <details>
 <summary>
 Click here to see the ERD and snapshot of each table!
@@ -54,7 +57,7 @@ Click here to see the ERD and snapshot of each table!
 
 ***
  
-## Project Goal 🎯
+## Project Goal
 
 <details> 
 <summary>
@@ -93,7 +96,7 @@ Project Goal
 
 ***
 
-## Insight and Visualization 📈
+## Insight and Visualization
 
 ### ✒ Q1: Gsearch seems to be the biggest driver of our busienss. Could you pull **monthly trends** for **gsearch sessions and orders** so that we can showcase the growth there?
 
@@ -490,7 +493,7 @@ WHERE created_at BETWEEN '2012-10-27' AND '2012-11-27'
 
 ***
 
-## Conclusion ⏺
+## Conclusion
 
 <details> 
 <summary>
