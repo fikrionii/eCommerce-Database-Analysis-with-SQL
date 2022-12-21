@@ -466,6 +466,10 @@ WHERE
 GROUP BY 1;
 ```
 
+- /billing page generates 657 sessions, with USD 22,83 revenue per session
+- /billing-2 page generates 654 sessions, with USD 31,34 revenue per session
+- INCREASE: USD 8.51 per session
+
 ***
 
 
