@@ -309,6 +309,130 @@ WHERE
 
 ### ✒ Q7: For the landing page test you analyzed previously, it would be great to shows a **full conversion funnel from each of the two pages to orders**. You can use the same time period you analyzed last time (Jun 19 - Jul 28)
 
+```sql
+SELECT
+  MIN(website_pageview_id) AS first_test_pv
+FROM website_pageviews
+WHERE pageview_url = '/lander-1';
+
+-- First test lander-1 pageviews is 23504
+
+SELECT
+  website_sessions.website_session_id,
+  website_pageviews.pageview_url,
+  website_pageviews.created_at AS pageview_created_at,
+  CASE WHEN pageview_url = '/home' THEN 1 ELSE 0 END AS home_page,
+  CASE WHEN pageview_url = '/lander-1' THEN 1 ELSE 0 END AS lander1_page,
+  CASE WHEN pageview_url = '/products' THEN 1 ELSE 0 END AS product_page,
+  CASE WHEN pageview_url = '/the-original-mr-fuzzy' THEN 1 ELSE 0 END AS mrfuzzy_page,
+  CASE WHEN pageview_url = '/cart' THEN 1 ELSE 0 END AS cart_page,
+  CASE WHEN pageview_url = '/shipping' THEN 1 ELSE 0 END AS shipping_page,
+  CASE WHEN pageview_url = '/billing' THEN 1 ELSE 0 END AS billing_page,
+  CASE WHEN pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END AS thankyou_page
+FROM website_sessions
+  LEFT JOIN website_pageviews
+    ON website_sessions.website_session_id = website_pageviews.website_session_id
+WHERE
+  website_sessions.utm_source = 'gsearch'
+  AND website_sessions.utm_campaign = 'nonbrand'
+  AND website_pageview_id >= 23504
+  AND website_pageviews.created_at < '2012-07-28'
+  AND website_pageviews.pageview_url IN ('/home', '/lander-1', '/products', '/the-original-mr-fuzzy', '/cart', '/shipping', '/billing', '/thank-you-for-your-order')
+ORDER BY
+  website_sessions.website_session_id,
+  website_pageviews.created_at
+;
+
+-- next we will put the previous query inside a subquery (similar to temporary tables)
+-- we will group by website_session_id, and take the MAX() of each of the flags
+-- this MAX() becomes a made it flag for that session, to show the session made it there
+
+CREATE TEMPORARY TABLE session_level_made_it_flags
+SELECT
+  website_session_id,
+  MAX(homepage) AS saw_homepage,
+  MAX(custom_lander) AS saw_custom_lander,
+  MAX(product_page) AS product_made_it,
+  MAX(mrfuzzy_page) AS mrfuzzy_made_it,
+  MAX(cart_page) AS cart_made_it,
+  MAX(shipping_page) AS shipping_made_it,
+  MAX(billing_page) AS billing_made_it,
+  MAX(thankyou_page) AS thankyou_made_it
+FROM(
+SELECT
+  website_sessions.website_session_id,
+  website_pageviews.pageview_url,
+  website_pageviews.created_at AS pageview_created_at,
+  CASE WHEN pageview_url = '/home' THEN 1 ELSE 0 END AS homepage,
+  CASE WHEN pageview_url = '/lander-1' THEN 1 ELSE 0 END AS custom_lander,
+  CASE WHEN pageview_url = '/products' THEN 1 ELSE 0 END AS product_page,
+  CASE WHEN pageview_url = '/the-original-mr-fuzzy' THEN 1 ELSE 0 END AS mrfuzzy_page,
+  CASE WHEN pageview_url = '/cart' THEN 1 ELSE 0 END AS cart_page,
+  CASE WHEN pageview_url = '/shipping' THEN 1 ELSE 0 END AS shipping_page,
+  CASE WHEN pageview_url = '/billing' THEN 1 ELSE 0 END AS billing_page,
+  CASE WHEN pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END AS thankyou_page
+FROM website_sessions
+  LEFT JOIN website_pageviews
+    ON website_sessions.website_session_id = website_pageviews.website_session_id
+WHERE
+  website_sessions.utm_source = 'gsearch'
+  AND website_sessions.utm_campaign = 'nonbrand'
+  AND website_pageviews.created_at < '2012-07-28'
+  AND website_pageviews.created_at > '2012-06-19'
+ORDER BY
+  website_sessions.website_session_id,
+  website_pageviews.created_at
+) AS pageview_level
+GROUP BY 1;
+
+SELECT *
+FROM session_level_made_it_flags;
+
+-- then this will produce the final output (part 1)
+
+SELECT
+  CASE
+    WHEN saw_homepage = 1 THEN 'saw_homepage'
+    WHEN saw_custom_lander = 1 THEN 'saw_custom_lander'
+    ELSE 'uh oh... check logic'
+    END AS segment,
+  COUNT(DISTINCT website_session_id) AS sessions,
+  COUNT(DISTINCT CASE WHEN product_made_it = 1 THEN website_session_id ELSE NULL END) AS to_products,
+  COUNT(DISTINCT CASE WHEN mrfuzzy_made_it = 1 THEN website_session_id ELSE NULL END) AS to_mrfuzzy,
+  COUNT(DISTINCT CASE WHEN cart_made_it = 1 THEN website_session_id ELSE NULL END) AS to_cart,
+  COUNT(DISTINCT CASE WHEN shipping_made_it = 1 THEN website_session_id ELSE NULL END) AS to_shipping,
+  COUNT(DISTINCT CASE WHEN billing_made_it = 1 THEN website_session_id ELSE NULL END) AS to_billing,
+  COUNT(DISTINCT CASE WHEN thankyou_made_it = 1 THEN website_session_id ELSE NULL END) AS to_thankyou
+FROM
+  session_level_made_it_flags
+GROUP BY 1;
+
+-- then this is the final output part 2, click rates or conversion rates
+-- click rates or conversion rates is percentage of click rate from certain page divided by total sessions
+
+SELECT
+  CASE
+    WHEN saw_homepage = 1 THEN 'saw_homepage'
+    WHEN saw_custom_lander = 1 THEN 'saw_custom_lander'
+    ELSE 'uh oh... check logic'
+    END AS segment,
+  ROUND(COUNT(DISTINCT CASE WHEN product_made_it = 1 THEN website_session_id ELSE NULL END) /
+    COUNT(DISTINCT website_session_id) * 100.0, 2) AS products_click_rt,
+  ROUND(COUNT(DISTINCT CASE WHEN mrfuzzy_made_it = 1 THEN website_session_id ELSE NULL END) /
+    COUNT(DISTINCT website_session_id) * 100.0, 2) AS mrfuzzy_click_rt,
+  ROUND(COUNT(DISTINCT CASE WHEN cart_made_it = 1 THEN website_session_id ELSE NULL END) /
+    COUNT(DISTINCT website_session_id) * 100.0, 2) AS cart_click_rt,
+  ROUND(COUNT(DISTINCT CASE WHEN shipping_made_it = 1 THEN website_session_id ELSE NULL END) /
+    COUNT(DISTINCT website_session_id) * 100.0, 2) AS shipping_click_rt,
+  ROUND(COUNT(DISTINCT CASE WHEN billing_made_it = 1 THEN website_session_id ELSE NULL END) /
+    COUNT(DISTINCT website_session_id) * 100.0, 2) AS billing_click_rt,
+  ROUND(COUNT(DISTINCT CASE WHEN thankyou_made_it = 1 THEN website_session_id ELSE NULL END) /
+    COUNT(DISTINCT website_session_id) * 100.0, 2) AS thankyou_click_rt
+FROM
+  session_level_made_it_flags
+GROUP BY 1;
+```
+
 ***
 
 
