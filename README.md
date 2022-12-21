@@ -483,7 +483,10 @@ WHERE created_at BETWEEN '2012-10-27' AND '2012-11-27'
 <kbd><img width="160" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/query_results/question_8_part2.PNG"></kbd>
 
 - `/billing` page USD 22,83 revenue per session and new `/billing-2` page generates USD 31,34 revenue per session. The lift is **USD 8.51 per session**.
-- Over the past month there has been 1,193 sessions. The new page has has generated USD 10,153 increase in revenue. 
+- Over the past month there has been 1,193 sessions. The new page has has generated **USD 10,153 increase in revenue**. 
+
+<kbd><img width="980" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_8_chart.png"></kbd>
+
 
 ***
 
