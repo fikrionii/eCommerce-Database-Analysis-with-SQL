@@ -504,18 +504,24 @@ WHERE created_at BETWEEN '2012-10-27' AND '2012-11-27'
 
 ***
 
-## Conclusion
+## Insight and Recommendation
 
-<details> 
-<summary>
-Conclusion
-	
-</summary>
-<br>
-1. 
-2. 
-3. 
+**Insight**:
 
-</details> 
+1. The website performance has seen improvements over the course of the first 8 months. The conversion rate starts at 3.19% in March and reached 4.40% in November.
+2. Most of our traffic comes from users who access from desktop, almost 3/4 of traffic comes from desktop, while the rest comes from mobile.
+3. In March, 99% of our traffic comes from gsearch. From August to November, our traffic sources are more diverse; 70% of it comes from gsearch, 22% comes from bsearch, and 8% comes from direct and organic.
+4. The new `/lander-1` test shows better conversion rate compared to original `/home` page. The conversion rose from 3.18% to 4.06%, adding an increase of 0.88%. The `/lander-1` page generated additional 50 orders per month and also shows better click rates funnel.
+5. The new `/billing-2` test page also shows better result than the previous `/billing` page, which brought additional USD 8.51 revenue per session. For the past month, there has been 1,193 session total, and the new billing page brought a total of USD 10,153 increase in revenue.
+
+**Recommendation**:
+
+1. With most of our users coming from desktop, we can focus our campaign and budget to desktop users. Additionally, evalute the mobile webpage and find why the traffic is low, then create a better user interface and experience for mobile users.
+2. For paid marketing campaigns, most of the sessions come from gsearch than bsearch. We can focus our budget and campaign to gsearch for higher sessions reach in the future.
+
+
+***
+
+Thanks for visiting my repository 😃🌟
 
 
