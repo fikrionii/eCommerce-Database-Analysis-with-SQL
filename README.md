@@ -152,7 +152,7 @@ GROUP BY 1;
 <p align="center">
 <kbd><img width="550" alt="image" src="https://github.com/fikrionii/eCommerce-Database-Analysis-with-SQL/blob/main/charts/question_2_chart_rev.png"></kbd>
 
-In the early days of brand campaign, the conversion rate is very high at 9.23%, though the number of sessions and orders are still considered low compared to nonbrand campaign. The brand sessions and orders do increase steadily every month, and while still lower than nonbrand, in November its conversion rate still shows higher number than nonbrand (4.44% vs 4.19% for nonbrand and brand, respectively).
+In the early days of brand campaign, the conversion rate is very high at 9.23%, though the number of sessions and orders are still considered low compared to nonbrand campaign. The brand sessions and orders do increase steadily every month, and while still lower than nonbrand, in November its conversion rate still shows higher number than nonbrand (4.44% vs 4.19% for brand and nonbrand, respectively).
 
 ### ✒ Q3: While we're on gsearch, could you dive into nonbrand, and pull **monthly sessions and orders split by device type**? I want to flex our analytical muscles a little and show the board we really know our traffic sources.
 
